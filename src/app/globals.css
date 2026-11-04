@@ -58,6 +58,19 @@
   --radius-xl: 16px;
   --radius-2xl: 20px;
   --radius-3xl: 24px;
+
+  /*
+   * Typography scale measured from Mercury's live demo dashboard via
+   * headless-browser computed styles (not estimated from a screenshot).
+   * Use these `text-*` utilities instead of Tailwind's default type scale
+   * wherever we're matching a Mercury-equivalent element.
+   */
+  --text-h1: 28px;
+  --text-h1--line-height: 36px;
+  --text-nav: 16px;
+  --text-nav--line-height: 16px;
+  --text-label: 15px;
+  --text-label--line-height: 24px;
 }
 
 :root {

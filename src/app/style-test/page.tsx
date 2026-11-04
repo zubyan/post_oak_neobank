@@ -83,7 +83,7 @@ export default function StyleTestPage() {
             <button
               key={item.label}
               className={cn(
-                "rounded-md px-3 py-2 text-left text-sm font-medium transition-colors",
+                "rounded-md px-3 py-2 text-left text-nav font-[360] transition-colors",
                 item.active
                   ? "bg-sidebar-accent text-sidebar-accent-foreground"
                   : "text-sidebar-foreground/70 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
@@ -111,7 +111,7 @@ export default function StyleTestPage() {
 
       <main className="flex-1 space-y-10 p-8">
         <header className="space-y-1">
-          <h1 className="font-heading text-2xl font-semibold tracking-tight">
+          <h1 className="text-h1 font-[380] tracking-tight">
             Style test — border, spacing, type &amp; color check
           </h1>
           <p className="text-sm text-muted-foreground">
@@ -126,10 +126,12 @@ export default function StyleTestPage() {
           </h2>
           <Card>
             <CardContent className="space-y-3 pt-6">
-              <p className="font-heading text-4xl font-medium">$128,430.12</p>
-              <p className="font-heading text-2xl font-medium">Heading / Instrument Sans 2xl</p>
-              <p className="text-lg font-medium">Body large / Geist Sans lg</p>
-              <p className="text-sm">Body small / Geist Sans sm</p>
+              <p className="text-4xl font-medium">$128,430.12</p>
+              <p className="text-h1 font-[380]">h1 — 28px/36px, weight 380 (measured from Mercury)</p>
+              <p className="text-nav font-[360]">Sidebar nav — 16px/16px, weight 360 (measured from Mercury)</p>
+              <p className="text-label">Secondary label — 15px/24px (measured from Mercury)</p>
+              <p className="text-lg font-medium">Body large / Instrument Sans lg</p>
+              <p className="text-sm">Body small / Instrument Sans sm</p>
               <p className="text-xs text-muted-foreground">Caption / muted xs</p>
               <p className="font-mono text-sm">$1,204.50 — Geist Mono for figures</p>
             </CardContent>
