@@ -9,20 +9,86 @@ export const WORKSPACE = {
   plan: "Business",
 };
 
+export type AccountColor = "brand" | "teal" | "info" | "warning";
+
 export type Account = {
   id: string;
   name: string;
   mask: string;
   balance: number;
+  type: string;
+  change: number;
+  changeLabel: string;
+  color: AccountColor;
+  sparkline: number[];
   bookmarked?: boolean;
 };
 
+function sparklineFrom(end: number, wobble: number[]) {
+  return wobble.map((w) => Math.round(end * (1 + w)));
+}
+
 export const ACCOUNTS: Account[] = [
-  { id: "checking", name: "Checking", mask: "4821", balance: 482318.44, bookmarked: false },
-  { id: "savings", name: "Savings", mask: "7790", balance: 1250900.0, bookmarked: false },
-  { id: "operating", name: "Operating", mask: "9043", balance: 142980.22, bookmarked: true },
-  { id: "payroll", name: "Payroll", mask: "2210", balance: 38210.55, bookmarked: true },
-  { id: "tax-reserve", name: "Tax Reserve", mask: "6634", balance: 64500.0, bookmarked: false },
+  {
+    id: "checking",
+    name: "Checking",
+    mask: "4821",
+    balance: 482318.44,
+    type: "Checking",
+    change: 18240,
+    changeLabel: "+$18,240 · 30d",
+    color: "brand",
+    sparkline: sparklineFrom(482318, [-0.08, -0.05, -0.06, -0.02, 0.01, 0.03, 0]),
+    bookmarked: false,
+  },
+  {
+    id: "operating",
+    name: "Operating",
+    mask: "9043",
+    balance: 142980.22,
+    type: "Checking",
+    change: 71980,
+    changeLabel: "+$71,980 · 30d",
+    color: "brand",
+    sparkline: sparklineFrom(142980, [-0.35, -0.28, -0.2, -0.12, -0.05, 0.02, 0]),
+    bookmarked: true,
+  },
+  {
+    id: "treasury",
+    name: "Treasury",
+    mask: "7790",
+    balance: 1250900.0,
+    type: "T-bills · 4.31% APY",
+    change: 4812,
+    changeLabel: "+$4,812 yield",
+    color: "teal",
+    sparkline: sparklineFrom(1250900, [-0.004, -0.003, -0.002, -0.001, 0, 0.001, 0]),
+    bookmarked: false,
+  },
+  {
+    id: "payroll",
+    name: "Payroll",
+    mask: "2210",
+    balance: 38210.55,
+    type: "Checking",
+    change: -94200,
+    changeLabel: "−$94,200 · 30d",
+    color: "info",
+    sparkline: sparklineFrom(38210, [0.4, 0.32, 0.18, 0.25, -0.1, -0.2, 0]),
+    bookmarked: true,
+  },
+  {
+    id: "reserve",
+    name: "Reserve",
+    mask: "0147",
+    balance: 64500.0,
+    type: "Savings",
+    change: 3618,
+    changeLabel: "+$3,618 · 30d",
+    color: "warning",
+    sparkline: sparklineFrom(64500, [-0.06, -0.04, -0.02, -0.03, -0.01, 0.01, 0]),
+    bookmarked: false,
+  },
 ];
 
 export const BOOKMARKED_ACCOUNTS = ACCOUNTS.filter((a) => a.bookmarked);
@@ -31,6 +97,9 @@ export const TOTAL_BALANCE = ACCOUNTS.reduce((sum, a) => sum + a.balance, 0);
 
 export const MONEY_IN_30D = 186420.5;
 export const MONEY_OUT_30D = 142205.18;
+export const BALANCE_CHANGE_30D = MONEY_IN_30D - MONEY_OUT_30D;
+export const BALANCE_CHANGE_PCT_30D = BALANCE_CHANGE_30D / (TOTAL_BALANCE - BALANCE_CHANGE_30D);
+export const RUNWAY_MONTHS = TOTAL_BALANCE / MONEY_OUT_30D;
 
 // Deterministic 30-day balance series ending at TOTAL_BALANCE, mildly volatile upward trend.
 export const BALANCE_HISTORY = (() => {
@@ -78,6 +147,15 @@ export function formatCurrency(value: number) {
     currency: "USD",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
+  });
+}
+
+export function formatCurrencyWhole(value: number) {
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   });
 }
 

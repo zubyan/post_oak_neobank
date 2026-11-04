@@ -52,6 +52,8 @@
   --color-brand-950: var(--brand-950);
   --color-money-in: var(--money-in);
   --color-money-out: var(--money-out);
+  --color-info: var(--info);
+  --color-warning: var(--warning);
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
@@ -78,12 +80,11 @@
 
 :root {
   /*
-   * Dark is the only theme for this prototype — no light mode, no switcher.
-   * Post Oak brand green scale below is a PLACEHOLDER until the client
-   * sends exact brand colors/logo; only this block should need to change
-   * once real values land.
+   * Light theme — Post Oak brand green scale below is a PLACEHOLDER until
+   * the client sends exact brand colors/logo; only this block should need
+   * to change once real values land.
    */
-  color-scheme: dark;
+  color-scheme: light;
 
   --brand-50: oklch(0.97 0.025 152);
   --brand-100: oklch(0.94 0.045 152);
@@ -97,39 +98,41 @@
   --brand-900: oklch(0.22 0.045 152);
   --brand-950: oklch(0.15 0.03 152);
 
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: var(--brand-400);
-  --primary-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: var(--brand-900);
-  --accent-foreground: var(--brand-100);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: var(--brand-400);
-  --money-in: oklch(0.72 0.15 158);
-  --money-out: oklch(0.72 0.17 15);
-  --chart-1: var(--brand-400);
-  --chart-2: var(--brand-300);
-  --chart-3: var(--brand-600);
+  --background: oklch(0.975 0.003 90);
+  --foreground: oklch(0.2 0.01 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.01 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.01 260);
+  --primary: var(--brand-700);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.955 0.003 90);
+  --secondary-foreground: oklch(0.2 0.01 260);
+  --muted: oklch(0.96 0.003 90);
+  --muted-foreground: oklch(0.52 0.01 260);
+  --accent: var(--brand-50);
+  --accent-foreground: var(--brand-800);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.004 90);
+  --input: oklch(0.9 0.004 90);
+  --ring: var(--brand-500);
+  --money-in: oklch(0.52 0.14 158);
+  --money-out: oklch(0.55 0.19 15);
+  --info: oklch(0.55 0.18 250);
+  --warning: oklch(0.65 0.15 70);
+  --chart-1: var(--brand-700);
+  --chart-2: var(--brand-500);
+  --chart-3: var(--brand-300);
   --chart-4: oklch(0.556 0 0);
-  --chart-5: oklch(0.371 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: var(--brand-400);
-  --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: var(--brand-900);
-  --sidebar-accent-foreground: var(--brand-100);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: var(--brand-400);
+  --chart-5: oklch(0.87 0 0);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.2 0.01 260);
+  --sidebar-primary: var(--brand-700);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: var(--brand-50);
+  --sidebar-accent-foreground: var(--brand-800);
+  --sidebar-border: oklch(0.92 0.004 90);
+  --sidebar-ring: var(--brand-500);
 }
 
 @layer base {
