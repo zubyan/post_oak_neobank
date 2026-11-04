@@ -127,7 +127,7 @@ export default function StyleTestPage() {
           <Card>
             <CardContent className="space-y-3 pt-6">
               <p className="font-heading text-4xl font-medium">$128,430.12</p>
-              <p className="font-heading text-2xl font-medium">Heading / Fraunces 2xl</p>
+              <p className="font-heading text-2xl font-medium">Heading / Instrument Sans 2xl</p>
               <p className="text-lg font-medium">Body large / Geist Sans lg</p>
               <p className="text-sm">Body small / Geist Sans sm</p>
               <p className="text-xs text-muted-foreground">Caption / muted xs</p>
