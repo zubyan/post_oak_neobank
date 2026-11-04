@@ -62,60 +62,13 @@
 
 :root {
   /*
-   * Post Oak brand green scale — PLACEHOLDER until the client sends exact
-   * brand colors/logo. Expressed as a full 50-950 ramp so every surface
-   * that references --brand-* repaints instantly once real values land;
-   * only this block should need to change.
+   * Dark is the only theme for this prototype — no light mode, no switcher.
+   * Post Oak brand green scale below is a PLACEHOLDER until the client
+   * sends exact brand colors/logo; only this block should need to change
+   * once real values land.
    */
-  --brand-50: oklch(0.97 0.025 152);
-  --brand-100: oklch(0.94 0.045 152);
-  --brand-200: oklch(0.88 0.07 152);
-  --brand-300: oklch(0.79 0.09 152);
-  --brand-400: oklch(0.68 0.1 152);
-  --brand-500: oklch(0.56 0.1 152);
-  --brand-600: oklch(0.46 0.09 152);
-  --brand-700: oklch(0.37 0.075 152);
-  --brand-800: oklch(0.29 0.06 152);
-  --brand-900: oklch(0.22 0.045 152);
-  --brand-950: oklch(0.15 0.03 152);
+  color-scheme: dark;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: var(--brand-700);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: var(--brand-50);
-  --accent-foreground: var(--brand-800);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: var(--brand-500);
-  --money-in: oklch(0.52 0.14 158);
-  --money-out: oklch(0.55 0.19 15);
-  --chart-1: var(--brand-700);
-  --chart-2: var(--brand-500);
-  --chart-3: var(--brand-300);
-  --chart-4: oklch(0.556 0 0);
-  --chart-5: oklch(0.87 0 0);
-  --radius: 0.5rem;
-  --sidebar: oklch(0.99 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: var(--brand-700);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: var(--brand-50);
-  --sidebar-accent-foreground: var(--brand-800);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: var(--brand-500);
-}
-
-.dark {
   --brand-50: oklch(0.97 0.025 152);
   --brand-100: oklch(0.94 0.045 152);
   --brand-200: oklch(0.88 0.07 152);
