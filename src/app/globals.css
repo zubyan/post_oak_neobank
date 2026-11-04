@@ -71,6 +71,9 @@
   --text-nav--line-height: 16px;
   --text-label: 15px;
   --text-label--line-height: 24px;
+  /* Hero money figure — scaled up from the measured h1, not independently measured. */
+  --text-display: 36px;
+  --text-display--line-height: 44px;
 }
 
 :root {
