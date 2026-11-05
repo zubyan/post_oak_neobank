@@ -49,7 +49,7 @@ function IconButton({
 function MoveMoneyButton({ className }: { className?: string }) {
   return (
     <Button
-      variant="outline"
+      variant="ghost"
       className={cn("h-auto gap-1.5 rounded-full px-4 py-1 text-[15px]", className)}
     >
       <ArrowLeftRight className="size-3.5" />
@@ -63,7 +63,7 @@ export function AppTopbar() {
   const { setOpen } = useMobileNav();
 
   return (
-    <header className="flex shrink-0 items-center justify-between gap-3 border-b border-border px-6 py-3">
+    <header className="flex shrink-0 items-center justify-between gap-3 px-6 py-3">
       {/* Left zone: hamburger + brand (mobile only) + move money (mobile only) + search.
           On desktop everything but search collapses away, leaving search alone on the
           far left so `justify-between` splits it from the right zone cleanly. */}
@@ -87,12 +87,12 @@ export function AppTopbar() {
 
         <MoveMoneyButton className="shrink-0 md:hidden" />
 
-        <div className="relative min-w-0 flex-1 md:max-w-[180px] lg:max-w-xs xl:max-w-sm">
-          <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
+        <div className="flex h-8 min-w-0 flex-1 items-center rounded-full px-3 transition-colors hover:bg-muted/50 focus-within:bg-muted/50 md:max-w-[180px] lg:max-w-xs xl:max-w-sm">
+          <Search className="pointer-events-none mr-1.5 size-[11px] shrink-0 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Search for anything"
-            className="h-8 rounded-full bg-muted/50 pl-9"
+            className="h-full border-0! bg-transparent! px-0! focus-visible:ring-0"
           />
         </div>
       </div>
@@ -102,14 +102,14 @@ export function AppTopbar() {
         <MoveMoneyButton className="hidden md:inline-flex" />
 
         <IconButton label={hidden ? "Show balances" : "Hide balances"} onClick={toggle}>
-          {hidden ? <EyeOff className="size-[18px]" /> : <Eye className="size-[18px]" />}
+          {hidden ? <EyeOff className="size-[13px]" /> : <Eye className="size-[13px]" />}
         </IconButton>
         <ThemeToggle />
         <IconButton label="Settings">
-          <Settings className="size-[18px]" />
+          <Settings className="size-[13px]" />
         </IconButton>
         <IconButton label="Notifications">
-          <Bell className="size-[18px]" />
+          <Bell className="size-[13px]" />
         </IconButton>
 
         <DropdownMenu>

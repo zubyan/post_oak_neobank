@@ -5,7 +5,6 @@ import { WorkspaceSwitcher } from "@/components/layout/workspace-switcher";
 import { NavLink } from "@/components/layout/nav-link";
 import { BookmarksList } from "@/components/layout/bookmarks-list";
 import { PRIMARY_NAV, SECONDARY_NAV } from "@/lib/nav-items";
-import { WORKSPACE } from "@/lib/sample-data";
 
 export function SidebarNav() {
   return (
@@ -14,12 +13,7 @@ export function SidebarNav() {
         <div className="flex size-7 shrink-0 items-center justify-center rounded-md bg-brand-700 text-sm font-semibold text-white">
           P
         </div>
-        <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-sidebar-foreground">Post Oak</p>
-          <p className="truncate text-xs text-sidebar-foreground/50">
-            {WORKSPACE.name} · {WORKSPACE.plan}
-          </p>
-        </div>
+        <p className="truncate text-sm font-semibold text-sidebar-foreground">Post Oak</p>
       </div>
 
       <div className="px-2 pb-3">
