@@ -25,7 +25,9 @@ export function NavLink({ item }: { item: NavItem }) {
           : "text-sidebar-foreground/75 hover:bg-sidebar-accent/60 hover:text-sidebar-foreground"
       )}
     >
-      <Icon className="size-[18px] shrink-0" strokeWidth={1.75} />
+      <span className="flex size-6 shrink-0 items-center justify-center">
+        <Icon className="size-3" strokeWidth={1.75} />
+      </span>
       <span className="flex-1 truncate">{item.label}</span>
       {item.badge ? (
         <Badge variant="secondary" className="h-5 shrink-0 px-1.5 text-[11px]">
