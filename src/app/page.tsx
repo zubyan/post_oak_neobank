@@ -13,7 +13,7 @@ export default function DashboardHomePage() {
       </div>
 
       <div className="space-y-10">
-        <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 xl:grid-cols-2">
           <BalanceCard />
           <AccountsListCard />
         </div>
