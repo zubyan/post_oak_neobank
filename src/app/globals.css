@@ -50,6 +50,8 @@
   --color-brand-800: var(--brand-800);
   --color-brand-900: var(--brand-900);
   --color-brand-950: var(--brand-950);
+  --color-money-in: var(--money-in);
+  --color-money-out: var(--money-out);
   --color-decrement: var(--decrement);
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -127,10 +129,12 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: var(--brand-500);
+  --money-in: oklch(0.52 0.14 158);
+  --money-out: oklch(0.55 0.19 15);
   /*
    * Decrement/negative color for use on the always-dark-green hero balance
    * card specifically -- distinct from both --destructive (tuned for the
-   * general light/dark site theme).
+   * general light/dark site theme) and --money-out (also theme-adaptive).
    * Since the hero card's background never changes with the site theme,
    * this stays a single fixed value, not redeclared in .dark.
    */
@@ -171,6 +175,8 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: var(--brand-400);
+  --money-in: oklch(0.72 0.15 158);
+  --money-out: oklch(0.72 0.17 15);
   --chart-1: var(--brand-400);
   --chart-2: var(--brand-300);
   --chart-3: var(--brand-600);
