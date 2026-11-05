@@ -5,7 +5,7 @@ import { WIDGETS, formatCurrency } from "@/lib/sample-data";
 
 export function WidgetsRow() {
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
       <WidgetCard icon={CreditCard} title="Credit Card" href="/cards" footer="View card">
         <MaskedMoney value={WIDGETS.creditCard.spent} className="text-xl font-medium" />
         <p className="mt-1 text-xs text-muted-foreground">

@@ -42,7 +42,7 @@ export function BalanceCard() {
         <CardAction>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="rounded-full">
+              <Button variant="outline" className="h-auto rounded-full px-4 py-1 text-[15px]">
                 {range}
               </Button>
             </DropdownMenuTrigger>

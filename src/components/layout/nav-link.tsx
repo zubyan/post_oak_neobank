@@ -19,7 +19,7 @@ export function NavLink({ item }: { item: NavItem }) {
       aria-current={active ? "page" : undefined}
       onClick={() => setOpen(false)}
       className={cn(
-        "flex items-center gap-2.5 rounded-md px-3 py-2 text-nav font-[360] transition-colors",
+        "flex items-center gap-2.5 rounded-md px-2 py-0.5 text-nav font-[360] transition-colors",
         active
           ? "bg-sidebar-accent text-sidebar-accent-foreground"
           : "text-sidebar-foreground/75 hover:bg-sidebar-accent/60 hover:text-sidebar-foreground"

@@ -28,7 +28,7 @@ export function ThemeToggle() {
           size="icon"
           onClick={() => setTheme(isDark ? "light" : "dark")}
           aria-label={label}
-          className="size-9 rounded-full text-foreground/70 hover:text-foreground"
+          className="size-8 rounded-full p-0 text-foreground/70 hover:text-foreground"
         >
           {mounted ? (
             isDark ? (

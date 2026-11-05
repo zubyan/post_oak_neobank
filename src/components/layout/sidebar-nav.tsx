@@ -22,11 +22,11 @@ export function SidebarNav() {
         </div>
       </div>
 
-      <div className="px-3 pb-3">
+      <div className="px-2 pb-3">
         <WorkspaceSwitcher />
       </div>
 
-      <nav className="flex flex-col gap-0.5 px-3">
+      <nav className="flex flex-col gap-0.5 px-2">
         {PRIMARY_NAV.map((item) => (
           <NavLink key={item.href} item={item} />
         ))}
@@ -34,7 +34,7 @@ export function SidebarNav() {
 
       <Separator className="my-3 bg-sidebar-border" />
 
-      <nav className="flex flex-col gap-0.5 px-3">
+      <nav className="flex flex-col gap-0.5 px-2">
         {SECONDARY_NAV.map((item) => (
           <NavLink key={item.href} item={item} />
         ))}
