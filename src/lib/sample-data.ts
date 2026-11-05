@@ -31,6 +31,9 @@ export const TOTAL_BALANCE = ACCOUNTS.reduce((sum, a) => sum + a.balance, 0);
 
 export const MONEY_IN_30D = 186420.5;
 export const MONEY_OUT_30D = 142205.18;
+export const BALANCE_CHANGE_30D = MONEY_IN_30D - MONEY_OUT_30D;
+export const BALANCE_CHANGE_PCT_30D = BALANCE_CHANGE_30D / (TOTAL_BALANCE - BALANCE_CHANGE_30D);
+export const RUNWAY_MONTHS = TOTAL_BALANCE / MONEY_OUT_30D;
 
 // Deterministic 30-day balance series ending at TOTAL_BALANCE, mildly volatile upward trend.
 export const BALANCE_HISTORY = (() => {
@@ -83,4 +86,13 @@ export function formatCurrency(value: number) {
 
 export function formatCompactDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+export function formatCurrencyWhole(value: number) {
+  return value.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  });
 }

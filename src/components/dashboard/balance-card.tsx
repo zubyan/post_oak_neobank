@@ -1,93 +1,113 @@
 "use client";
 
 import { useState } from "react";
-import { LineChart, Table2 } from "lucide-react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardAction,
-  CardContent,
-} from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { TrendingUp, LineChart as LineChartIcon, Table2 } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { MaskedMoney } from "@/components/shared/masked-money";
+import { BalanceFigure } from "@/components/dashboard/balance-figure";
 import { BalanceChart } from "@/components/dashboard/balance-chart";
 import { BalanceTable } from "@/components/dashboard/balance-table";
-import { TOTAL_BALANCE, MONEY_IN_30D, MONEY_OUT_30D } from "@/lib/sample-data";
+import {
+  TOTAL_BALANCE,
+  MONEY_IN_30D,
+  MONEY_OUT_30D,
+  BALANCE_CHANGE_30D,
+  BALANCE_CHANGE_PCT_30D,
+  RUNWAY_MONTHS,
+  formatCurrencyWhole,
+} from "@/lib/sample-data";
+import { cn } from "@/lib/utils";
 
-const RANGE_OPTIONS = ["Last 7 days", "Last 30 days", "Last 90 days"];
+const RANGE_OPTIONS = ["1W", "1M", "3M", "1Y", "All"];
+
+function Stat({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <p className="text-xs text-white/60">{label}</p>
+      <p className="mt-0.5 font-medium text-white">{children}</p>
+    </div>
+  );
+}
 
 export function BalanceCard() {
-  const [range, setRange] = useState(RANGE_OPTIONS[1]);
+  const [range, setRange] = useState("1M");
   const [view, setView] = useState<"chart" | "table">("chart");
 
   return (
-    <Card className="rounded-lg!">
-      <CardHeader>
-        <CardDescription>Total balance</CardDescription>
-        <CardTitle>
-          <MaskedMoney
-            value={TOTAL_BALANCE}
-            className="text-display font-[380] text-foreground"
-          />
-        </CardTitle>
-        <CardAction>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="h-auto rounded-full px-4 py-1 text-[15px]">
-                {range}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {RANGE_OPTIONS.map((option) => (
-                <DropdownMenuItem key={option} onSelect={() => setRange(option)}>
-                  {option}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </CardAction>
-      </CardHeader>
-
-      <CardContent className="space-y-5">
-        <div className="flex items-center gap-8 text-sm">
-          <div>
-            <p className="text-muted-foreground">Money in</p>
-            <MaskedMoney value={MONEY_IN_30D} signed className="font-medium text-money-in" />
+    <Card className="gap-6 rounded-3xl! bg-brand-800 p-6 text-white shadow-none ring-0">
+      <div className="space-y-5">
+        <div>
+          <p className="text-sm text-white/60">Total balance</p>
+          <div className="mt-1">
+            <BalanceFigure value={TOTAL_BALANCE} />
           </div>
-          <div>
-            <p className="text-muted-foreground">Money out</p>
-            <MaskedMoney value={-MONEY_OUT_30D} signed className="font-medium text-money-out" />
-          </div>
-
-          <div className="ml-auto">
-            <ToggleGroup
-              type="single"
-              value={view}
-              onValueChange={(v) => v && setView(v as "chart" | "table")}
-              variant="outline"
-              size="sm"
-            >
-              <ToggleGroupItem value="chart" aria-label="Chart view">
-                <LineChart className="size-4" />
-              </ToggleGroupItem>
-              <ToggleGroupItem value="table" aria-label="Table view">
-                <Table2 className="size-4" />
-              </ToggleGroupItem>
-            </ToggleGroup>
+          <div className="mt-3 flex items-center gap-2">
+            <span className="inline-flex items-center gap-1 rounded-full bg-white/15 px-2.5 py-1 text-xs font-medium text-brand-100">
+              <TrendingUp className="size-3" />
+              {(BALANCE_CHANGE_PCT_30D * 100).toFixed(1)}%
+            </span>
+            <span className="text-sm text-white/70">
+              +{formatCurrencyWhole(BALANCE_CHANGE_30D)} this month
+            </span>
           </div>
         </div>
 
-        {view === "chart" ? <BalanceChart /> : <BalanceTable />}
-      </CardContent>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <Stat label="Money in">
+            <MaskedMoney value={MONEY_IN_30D} className="text-brand-200" />
+          </Stat>
+          <Stat label="Money out">
+            <MaskedMoney value={MONEY_OUT_30D} className="text-[oklch(0.8_0.1_20)]" />
+          </Stat>
+          <Stat label="Runway">{RUNWAY_MONTHS.toFixed(1)} mo</Stat>
+
+          <div className="ml-auto flex items-center gap-1.5">
+            <div className="flex items-center gap-0.5 rounded-full bg-white/10 p-1">
+              {RANGE_OPTIONS.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => setRange(option)}
+                  className={cn(
+                    "rounded-full px-2.5 py-1 text-xs font-medium transition-colors",
+                    range === option
+                      ? "bg-white text-brand-900"
+                      : "text-white/70 hover:text-white"
+                  )}
+                >
+                  {option}
+                </button>
+              ))}
+            </div>
+            <div className="flex items-center gap-0.5 rounded-full bg-white/10 p-1">
+              <button
+                type="button"
+                onClick={() => setView("chart")}
+                aria-label="Chart view"
+                className={cn(
+                  "flex size-6 items-center justify-center rounded-full transition-colors",
+                  view === "chart" ? "bg-white text-brand-900" : "text-white/70 hover:text-white"
+                )}
+              >
+                <LineChartIcon className="size-3.5" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setView("table")}
+                aria-label="Table view"
+                className={cn(
+                  "flex size-6 items-center justify-center rounded-full transition-colors",
+                  view === "table" ? "bg-white text-brand-900" : "text-white/70 hover:text-white"
+                )}
+              >
+                <Table2 className="size-3.5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {view === "chart" ? <BalanceChart /> : <BalanceTable />}
     </Card>
   );
 }
