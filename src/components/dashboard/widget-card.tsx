@@ -24,7 +24,7 @@ export function WidgetCard({
   footer: string;
 }) {
   return (
-    <Card className="rounded-xl">
+    <Card className="rounded-lg!">
       <CardHeader>
         <CardAction>
           <div className="flex size-8 items-center justify-center rounded-md bg-muted text-muted-foreground">
@@ -34,7 +34,7 @@ export function WidgetCard({
         <CardTitle className="text-base font-medium">{title}</CardTitle>
       </CardHeader>
       <CardContent>{children}</CardContent>
-      <CardFooter>
+      <CardFooter className="rounded-b-lg!">
         <Button asChild variant="outline" size="sm" className="w-full rounded-full">
           <Link href={href}>{footer}</Link>
         </Button>

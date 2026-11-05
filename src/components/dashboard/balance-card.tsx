@@ -30,7 +30,7 @@ export function BalanceCard() {
   const [view, setView] = useState<"chart" | "table">("chart");
 
   return (
-    <Card className="rounded-xl">
+    <Card className="rounded-lg!">
       <CardHeader>
         <CardDescription>Total balance</CardDescription>
         <CardTitle>

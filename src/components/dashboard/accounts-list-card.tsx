@@ -13,7 +13,7 @@ import { ACCOUNTS } from "@/lib/sample-data";
 
 export function AccountsListCard() {
   return (
-    <Card className="rounded-xl">
+    <Card className="rounded-lg!">
       <CardHeader>
         <CardTitle className="text-base font-medium">Accounts</CardTitle>
         <CardAction>
