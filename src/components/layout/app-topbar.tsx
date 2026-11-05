@@ -63,7 +63,7 @@ export function AppTopbar() {
   const { setOpen } = useMobileNav();
 
   return (
-    <header className="flex min-h-12 shrink-0 items-center justify-between gap-3 border-b border-border py-4 pr-4 pl-1.5">
+    <header className="flex shrink-0 items-center justify-between gap-3 border-b border-border px-6 py-3">
       {/* Left zone: hamburger + brand (mobile only) + move money (mobile only) + search.
           On desktop everything but search collapses away, leaving search alone on the
           far left so `justify-between` splits it from the right zone cleanly. */}
@@ -92,7 +92,7 @@ export function AppTopbar() {
           <Input
             type="search"
             placeholder="Search for anything"
-            className="h-9 rounded-full bg-muted/50 pl-9"
+            className="h-8 rounded-full bg-muted/50 pl-9"
           />
         </div>
       </div>
