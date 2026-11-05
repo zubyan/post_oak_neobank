@@ -15,6 +15,7 @@ import {
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useBalanceVisibility } from "@/components/layout/balance-visibility-context";
 import { useMobileNav } from "@/components/layout/mobile-nav-context";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { CURRENT_USER } from "@/lib/sample-data";
 
 function IconButton({
@@ -78,6 +79,7 @@ export function AppTopbar() {
         <IconButton label={hidden ? "Show balances" : "Hide balances"} onClick={toggle}>
           {hidden ? <EyeOff className="size-[18px]" /> : <Eye className="size-[18px]" />}
         </IconButton>
+        <ThemeToggle />
         <IconButton label="Settings">
           <Settings className="size-[18px]" />
         </IconButton>
