@@ -4,10 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useMobileNav } from "@/components/layout/mobile-nav-context";
 import type { NavItem } from "@/lib/nav-items";
 
 export function NavLink({ item }: { item: NavItem }) {
   const pathname = usePathname();
+  const { setOpen } = useMobileNav();
   const active = pathname === item.href;
   const Icon = item.icon;
 
@@ -15,6 +17,7 @@ export function NavLink({ item }: { item: NavItem }) {
     <Link
       href={item.href}
       aria-current={active ? "page" : undefined}
+      onClick={() => setOpen(false)}
       className={cn(
         "flex items-center gap-2.5 rounded-md px-3 py-2 text-nav font-[360] transition-colors",
         active

@@ -1,6 +1,6 @@
 "use client";
 
-import { Search, ArrowLeftRight, Eye, EyeOff, Settings, Bell } from "lucide-react";
+import { Search, ArrowLeftRight, Eye, EyeOff, Settings, Bell, Menu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { useBalanceVisibility } from "@/components/layout/balance-visibility-context";
+import { useMobileNav } from "@/components/layout/mobile-nav-context";
 import { CURRENT_USER } from "@/lib/sample-data";
 
 function IconButton({
@@ -45,9 +46,20 @@ function IconButton({
 
 export function AppTopbar() {
   const { hidden, toggle } = useBalanceVisibility();
+  const { setOpen } = useMobileNav();
 
   return (
     <header className="flex h-16 shrink-0 items-center gap-3 border-b border-border px-6">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setOpen(true)}
+        aria-label="Open navigation menu"
+        className="size-9 shrink-0 rounded-full text-foreground/70 hover:text-foreground md:hidden"
+      >
+        <Menu className="size-[18px]" />
+      </Button>
+
       <div className="relative min-w-0 flex-1 md:max-w-[180px] lg:max-w-xs xl:max-w-sm">
         <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
         <Input
