@@ -19,7 +19,7 @@ export function NavLink({ item }: { item: NavItem }) {
       aria-current={active ? "page" : undefined}
       onClick={() => setOpen(false)}
       className={cn(
-        "flex items-center gap-1.5 rounded-md px-2 py-0.5 text-[15px] font-[360] transition-colors",
+        "flex items-center gap-1.5 rounded-md px-2 py-0.5 text-sm font-[360] transition-colors",
         active
           ? "bg-sidebar-accent text-sidebar-accent-foreground"
           : "text-sidebar-foreground/75 hover:bg-sidebar-accent/60 hover:text-sidebar-foreground"
@@ -30,7 +30,7 @@ export function NavLink({ item }: { item: NavItem }) {
       </span>
       <span className="flex-1 truncate">{item.label}</span>
       {item.badge ? (
-        <Badge variant="secondary" className="h-5 shrink-0 px-1.5 text-[11px]">
+        <Badge variant="secondary" className="h-5 shrink-0 px-1.5 text-xs">
           {item.badge}
         </Badge>
       ) : null}

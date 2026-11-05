@@ -16,7 +16,7 @@ export function QuickActions() {
         <Button
           key={label}
           variant={variant}
-          className="h-auto gap-1.5 rounded-full px-4 py-1 text-[15px]"
+          className="h-auto gap-1.5 rounded-full px-4 py-1 text-sm"
         >
           <Icon className="size-3.5" />
           {label}

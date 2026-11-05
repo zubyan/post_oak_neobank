@@ -50,14 +50,24 @@
   --color-brand-800: var(--brand-800);
   --color-brand-900: var(--brand-900);
   --color-brand-950: var(--brand-950);
-  --color-money-in: var(--money-in);
-  --color-money-out: var(--money-out);
+  --color-decrement: var(--decrement);
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-2xl: 20px;
   --radius-3xl: 24px;
+
+  /*
+   * Overrides of Tailwind's own default text-size scale (not new custom
+   * names) so every text-xs/text-sm usage in the app picks up these exact
+   * pixel values instead of scattering one-off arbitrary classes. Keeps
+   * each step's original default line-height (16px/20px) unchanged.
+   */
+  --text-xs: 11px;
+  --text-xs--line-height: 16px;
+  --text-sm: 15px;
+  --text-sm--line-height: 20px;
 
   /*
    * Typography scale measured from Mercury's live demo dashboard via
@@ -72,7 +82,7 @@
   --text-label: 15px;
   --text-label--line-height: 24px;
   /* Hero money figure — scaled up from the measured h1, not independently measured. */
-  --text-display: 36px;
+  --text-display: 56px;
   --text-display--line-height: 44px;
 }
 
@@ -117,8 +127,14 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: var(--brand-500);
-  --money-in: oklch(0.52 0.14 158);
-  --money-out: oklch(0.55 0.19 15);
+  /*
+   * Decrement/negative color for use on the always-dark-green hero balance
+   * card specifically -- distinct from both --destructive (tuned for the
+   * general light/dark site theme).
+   * Since the hero card's background never changes with the site theme,
+   * this stays a single fixed value, not redeclared in .dark.
+   */
+  --decrement: oklch(0.8 0.1 20);
   --chart-1: var(--brand-700);
   --chart-2: var(--brand-500);
   --chart-3: var(--brand-300);
@@ -155,8 +171,6 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: var(--brand-400);
-  --money-in: oklch(0.72 0.15 158);
-  --money-out: oklch(0.72 0.17 15);
   --chart-1: var(--brand-400);
   --chart-2: var(--brand-300);
   --chart-3: var(--brand-600);

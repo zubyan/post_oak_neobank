@@ -57,7 +57,7 @@ export function BalanceCard() {
             <MaskedMoney value={MONEY_IN_30D} className="text-brand-200" />
           </Stat>
           <Stat label="Money out">
-            <MaskedMoney value={MONEY_OUT_30D} className="text-[oklch(0.8_0.1_20)]" />
+            <MaskedMoney value={MONEY_OUT_30D} className="text-decrement" />
           </Stat>
           <Stat label="Runway">{RUNWAY_MONTHS.toFixed(1)} mo</Stat>
 

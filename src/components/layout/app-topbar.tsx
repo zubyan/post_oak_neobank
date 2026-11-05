@@ -50,7 +50,7 @@ function MoveMoneyButton({ className }: { className?: string }) {
   return (
     <Button
       variant="ghost"
-      className={cn("h-auto gap-1.5 rounded-full px-4 py-1 text-[15px]", className)}
+      className={cn("h-auto gap-1.5 rounded-full px-4 py-1 text-sm", className)}
     >
       <ArrowLeftRight className="size-3.5" />
       Move money
@@ -75,7 +75,7 @@ export function AppTopbar() {
           aria-label="Open navigation menu"
           className="size-8 shrink-0 rounded-full p-0 text-foreground/70 hover:text-foreground md:hidden"
         >
-          <Menu className="size-[18px]" />
+          <Menu className="size-4.5" />
         </Button>
 
         <div className="flex shrink-0 items-center gap-2 md:hidden">
@@ -88,7 +88,7 @@ export function AppTopbar() {
         <MoveMoneyButton className="shrink-0 md:hidden" />
 
         <div className="flex h-8 min-w-0 flex-1 items-center rounded-full px-3 transition-colors hover:bg-muted/50 focus-within:bg-muted/50 md:max-w-[180px] lg:max-w-xs xl:max-w-sm">
-          <Search className="pointer-events-none mr-1.5 size-[11px] shrink-0 text-muted-foreground" />
+          <Search className="pointer-events-none mr-1.5 size-2.75 shrink-0 text-muted-foreground" />
           <Input
             type="search"
             placeholder="Search for anything"
@@ -102,14 +102,14 @@ export function AppTopbar() {
         <MoveMoneyButton className="hidden md:inline-flex" />
 
         <IconButton label={hidden ? "Show balances" : "Hide balances"} onClick={toggle}>
-          {hidden ? <EyeOff className="size-[13px]" /> : <Eye className="size-[13px]" />}
+          {hidden ? <EyeOff className="size-3.25" /> : <Eye className="size-3.25" />}
         </IconButton>
         <ThemeToggle />
         <IconButton label="Settings">
-          <Settings className="size-[13px]" />
+          <Settings className="size-3.25" />
         </IconButton>
         <IconButton label="Notifications">
-          <Bell className="size-[13px]" />
+          <Bell className="size-3.25" />
         </IconButton>
 
         <DropdownMenu>

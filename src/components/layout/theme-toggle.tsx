@@ -32,9 +32,9 @@ export function ThemeToggle() {
         >
           {mounted ? (
             isDark ? (
-              <Sun className="size-[13px]" />
+              <Sun className="size-3.25" />
             ) : (
-              <Moon className="size-[13px]" />
+              <Moon className="size-3.25" />
             )
           ) : null}
         </Button>
