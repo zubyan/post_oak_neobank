@@ -6,7 +6,7 @@ import { WidgetsRow } from "@/components/dashboard/widgets-row";
 
 export default function DashboardHomePage() {
   return (
-    <div className="mx-auto max-w-6xl p-6 lg:p-8">
+    <div className="mx-auto max-w-6xl px-6 py-6">
       <WelcomeHeader />
       <div className="mt-2 mb-6">
         <QuickActions />
