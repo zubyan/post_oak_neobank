@@ -36,8 +36,8 @@ export function BalanceChart() {
           <AreaChart data={BALANCE_HISTORY} margin={{ top: 8, right: 0, bottom: 0, left: 0 }}>
             <defs>
               <linearGradient id="balanceFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="var(--foreground)" stopOpacity={0.15} />
-                <stop offset="100%" stopColor="var(--foreground)" stopOpacity={0} />
+                <stop offset="0%" stopColor="var(--brand-600)" stopOpacity={0.35} />
+                <stop offset="100%" stopColor="var(--brand-600)" stopOpacity={0} />
               </linearGradient>
             </defs>
             <YAxis domain={["dataMin - 20000", "dataMax + 20000"]} hide />
@@ -48,10 +48,10 @@ export function BalanceChart() {
             <Area
               type="monotone"
               dataKey="balance"
-              stroke="var(--foreground)"
+              stroke="var(--brand-600)"
               strokeWidth={2}
               fill="url(#balanceFill)"
-              activeDot={{ r: 4, fill: "var(--foreground)" }}
+              activeDot={{ r: 4, fill: "var(--brand-600)" }}
             />
           </AreaChart>
         </ResponsiveContainer>
