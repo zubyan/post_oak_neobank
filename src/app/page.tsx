@@ -6,18 +6,20 @@ import { WidgetsRow } from "@/components/dashboard/widgets-row";
 
 export default function DashboardHomePage() {
   return (
-    <div className="mx-auto max-w-6xl space-y-10 p-6 lg:p-8">
-      <div className="space-y-4">
-        <WelcomeHeader />
+    <div className="mx-auto max-w-6xl p-6 lg:p-8">
+      <WelcomeHeader />
+      <div className="mt-2 mb-6">
         <QuickActions />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <BalanceCard />
-        <AccountsListCard />
-      </div>
+      <div className="space-y-10">
+        <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+          <BalanceCard />
+          <AccountsListCard />
+        </div>
 
-      <WidgetsRow />
+        <WidgetsRow />
+      </div>
     </div>
   );
 }
