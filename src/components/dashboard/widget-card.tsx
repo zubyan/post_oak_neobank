@@ -24,11 +24,11 @@ export function WidgetCard({
   footer: string;
 }) {
   return (
-    <Card className="rounded-2xl! shadow-none">
+    <Card className="rounded-xl">
       <CardHeader>
         <CardAction>
-          <div className="flex size-9 items-center justify-center rounded-lg bg-accent text-brand-700">
-            <Icon className="size-[18px]" strokeWidth={1.75} />
+          <div className="flex size-8 items-center justify-center rounded-md bg-muted text-muted-foreground">
+            <Icon className="size-4" />
           </div>
         </CardAction>
         <CardTitle className="text-base font-medium">{title}</CardTitle>

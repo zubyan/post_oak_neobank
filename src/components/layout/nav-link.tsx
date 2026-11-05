@@ -16,10 +16,10 @@ export function NavLink({ item }: { item: NavItem }) {
       href={item.href}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "flex items-center gap-2.5 rounded-lg px-3 py-2 text-sm transition-colors",
+        "flex items-center gap-2.5 rounded-md px-3 py-2 text-nav font-[360] transition-colors",
         active
-          ? "bg-sidebar-accent font-semibold text-sidebar-accent-foreground"
-          : "font-medium text-sidebar-foreground/60 hover:bg-sidebar-accent/60 hover:text-sidebar-foreground"
+          ? "bg-sidebar-accent text-sidebar-accent-foreground"
+          : "text-sidebar-foreground/75 hover:bg-sidebar-accent/60 hover:text-sidebar-foreground"
       )}
     >
       <Icon className="size-[18px] shrink-0" strokeWidth={1.75} />
